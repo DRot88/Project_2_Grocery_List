@@ -17,10 +17,9 @@ int main() {
   shoppingList.displayList();
   shoppingList.addItem();
   shoppingList.displayList();
-  // shoppingList.addItem();
-  // shoppingList.displayList();
-  // shoppingList.addItem();
-  // shoppingList.displayList();
+  shoppingList.removeItem();
+  shoppingList.displayList();
+
 
   return 0;
 }

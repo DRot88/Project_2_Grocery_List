@@ -73,6 +73,35 @@ void List::addItem() {
 }
 
 void List::removeItem() {
+  int deletedItemIndex;
+  string item_to_remove;
+  displayList();
+
+  Item *temp_array = new Item[listLength - 1];
+
+  cout << "Please enter the name of the item you would like to remove: ";
+  getline(cin, item_to_remove);
+
+  for (int x = 0; x < listLength; x++) {
+    if (item_to_remove == item_array[x].getName()) {
+      deletedItemIndex = x;
+    }
+  }
+
+  for (int x = 0; x < deletedItemIndex; x++) {
+    temp_array[x] = item_array[x];
+  }
+
+  for (int x = deletedItemIndex; x < listLength; x++) {
+    temp_array[x] = item_array[x+1];
+  } 
+
+  delete [] item_array;
+  item_array = 0;
+  item_array = temp_array;
+  temp_array = 0;
+
+  listLength -= 1;
 
   return;
 }
