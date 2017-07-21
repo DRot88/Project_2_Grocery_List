@@ -9,7 +9,7 @@
 CC = g++
 STD = -std=c++11
 CFLAGS = -c -g -Wall
-SOURCES = main.cpp 
+SOURCES = main.cpp list.cpp item.cpp
 OBJECTS = $(SOURCES:.cpp=.o)
 EXECUTABLE = project2
 
