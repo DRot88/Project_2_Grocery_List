@@ -6,8 +6,8 @@ using std::endl;
 using std::setw;
 
 Item::Item() {
-  name = "TBD";
-  unit = "TBD";
+  name = "";
+  unit = "";
   quant_to_buy = 0;
   price = 0;
 }

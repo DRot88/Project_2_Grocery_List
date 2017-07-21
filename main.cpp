@@ -10,9 +10,18 @@ int main() {
   cout << "\nWelcome to your shopping list!" << endl << endl;
 
   List shoppingList;
-  Item item1("Cheese", "Boxes", 3, 4);
-
-  item1.displayItem();
+  shoppingList.displayList();
+  shoppingList.addItem();
+  shoppingList.displayList();
+  shoppingList.addItem();
+  shoppingList.displayList();
+  shoppingList.addItem();
+  shoppingList.displayList();
+  shoppingList.addItem();
+  shoppingList.displayList();
+  shoppingList.addItem();
+  shoppingList.displayList();
+  shoppingList.addItem();
   shoppingList.displayList();
 
   return 0;
