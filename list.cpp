@@ -15,8 +15,6 @@ List::List() {
 }
 
 List::~List() {
-  delete [] item_array;
-  item_array = NULL;
   delete [] temp_array;
   temp_array = NULL;
 }
@@ -77,8 +75,12 @@ void List::removeItem() {
 }
 
 void List::displayList() {
+  total = 0;
   for(int x = 0; x < listLength; x++) {
     item_array[x].displayItem();
+    total += item_array[x].extendedPrice();
   }
+
+  cout << "\nThe total cost for all of your items in the list is: $" << total << endl << endl;
   return;
 }

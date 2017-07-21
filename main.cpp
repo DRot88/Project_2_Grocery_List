@@ -21,8 +21,6 @@ int main() {
   shoppingList.displayList();
   shoppingList.addItem();
   shoppingList.displayList();
-  shoppingList.addItem();
-  shoppingList.displayList();
 
   return 0;
 }
