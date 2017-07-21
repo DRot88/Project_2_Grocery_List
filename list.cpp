@@ -10,13 +10,13 @@ using std::endl;
 using std::string;
 
 List::List() {
-  listLength = 4;
+  listLength = 2;
   item_array = new Item[listLength];
 }
 
 List::~List() {
-  delete [] temp_array;
-  temp_array = NULL;
+  delete [] item_array;
+  item_array = 0;
 }
 
 void List::addItem() {
@@ -45,24 +45,27 @@ void List::addItem() {
     if (item_array[x].getName() == "") {
       item_array[x] = *newItem;
       delete newItem;
-      newItem = NULL;
+      newItem = 0;
       return;
     } 
   }
 
-  temp_array = new Item[listLength + 1];
+  Item *temp_array = new Item[listLength + 1];
+
   for (int x = 0; x < listLength; x++) {
     temp_array[x] = item_array[x];
   }
 
-  delete [] item_array;
-  item_array = NULL;
-
   temp_array[listLength] = *newItem;
   delete newItem;
-  newItem = NULL;
+  newItem = 0;
+
+  delete [] item_array;
+  item_array = 0;
 
   item_array = temp_array;
+
+  temp_array = 0;
 
   listLength += 1;
 

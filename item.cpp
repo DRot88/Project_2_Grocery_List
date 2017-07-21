@@ -51,14 +51,3 @@ void Item::setQuantToBuy(int q) {
 void Item::setPrice(int p) {
   price = p;
 }
-
-
-
-
-
-
-
-
-
-
-

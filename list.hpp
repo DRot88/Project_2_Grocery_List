@@ -8,7 +8,6 @@ class List {
   private:
     int listLength; // starting length
     Item *item_array;
-    Item *temp_array;
     int total;
   public:
     List();
