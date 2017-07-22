@@ -51,3 +51,10 @@ void Item::setQuantToBuy(int q) {
 void Item::setPrice(int p) {
   price = p;
 }
+
+bool Item::operator==(Item& right) {
+  if (this->name==right.name){
+    return true;
+  }
+  return false;
+}

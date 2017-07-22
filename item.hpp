@@ -20,6 +20,7 @@ class Item {
     void setUnit(string u);
     void setQuantToBuy(int q);
     void setPrice(int p);
+    bool operator==(Item& right);
 };
 
 #endif

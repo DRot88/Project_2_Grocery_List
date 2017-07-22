@@ -37,7 +37,7 @@ void Menu::displayMenu() {
       displayMenu();
       break;
     case 3 :
-      cin.ignore();    
+      cin.ignore();
       shoppingList.removeItem();
       shoppingList.displayList();
       displayMenu();

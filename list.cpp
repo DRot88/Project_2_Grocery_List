@@ -10,7 +10,7 @@ using std::endl;
 using std::string;
 
 List::List() {
-  listLength = 2;
+  listLength = 4;
   item_array = new Item[listLength];
 }
 
@@ -25,7 +25,7 @@ void List::addItem() {
   int quant = 0;
   int itemPrice = 0;
 
-  cout << "Please enter the item name you would like to add: ";
+  cout << "\nPlease enter the item name you would like to add: ";
   getline(cin, itemName);
 
   cout << "Please enter the unit you would like to add: ";
@@ -40,6 +40,13 @@ void List::addItem() {
 
   Item *newItem = new Item(itemName, itemUnit, quant, itemPrice);
   cin.ignore();
+
+  for (int x = 0; x < listLength; x++) {
+    if (item_array[x] == *newItem) {
+      cout << "The item you are trying to add already exists" << endl << endl;
+      return;
+    } 
+  }
 
   for (int x = 0; x < listLength; x++) {
     if (item_array[x].getName() == "") {
@@ -83,7 +90,7 @@ void List::removeItem() {
   getline(cin, item_to_remove);
 
   cout << endl;
-  
+
   for (int x = 0; x < listLength; x++) {
     if (item_to_remove == item_array[x].getName()) {
       deletedItemIndex = x;
