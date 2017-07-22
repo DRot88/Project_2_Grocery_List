@@ -9,16 +9,27 @@ using std::cin;
 using std::endl;
 using std::string;
 
+//constructor
 List::List() {
   listLength = 4;
   item_array = new Item[listLength];
 }
 
+//destructor
 List::~List() {
   delete [] item_array;
   item_array = 0;
 }
 
+/****************************************************************
+** Function: addItem
+** Description: This will be used to add an item the list. It will
+                prompt the user to enter the name, unit, quantity,
+                and price of the item. If the item already exists,
+                it will inform the user. If it is a new item, it
+                will add it to the list, and display the updated
+                list.
+****************************************************************/
 void List::addItem() {
   string itemName = "";
   string itemUnit = "";
@@ -79,12 +90,20 @@ void List::addItem() {
   return;
 }
 
+/****************************************************************
+** Function: removeItem
+** Description: This will ask the user what item they would like 
+                to remove. It will then search the list array
+                for the name of that item and remove it by creating
+                another array that stores everything except the
+                item to be removed.
+****************************************************************/
 void List::removeItem() {
   int deletedItemIndex;
   string item_to_remove;
   displayList();
 
-  Item *temp_array = new Item[listLength - 1];
+  Item *temp_array = new Item[listLength];
 
   cout << "Please enter the name of the item you would like to remove: ";
   getline(cin, item_to_remove);
@@ -93,23 +112,25 @@ void List::removeItem() {
 
   for (int x = 0; x < listLength; x++) {
     if (item_to_remove == item_array[x].getName()) {
+      cout << "item to remove index: " << x << endl << endl;
       deletedItemIndex = x;
     }
   }
 
+  cout << "Deleted Item Index: " << deletedItemIndex << endl;
   for (int x = 0; x < deletedItemIndex; x++) {
     temp_array[x] = item_array[x];
   }
 
-  for (int x = deletedItemIndex; x < listLength; x++) {
-    temp_array[x] = item_array[x+1];
+  for (int x = deletedItemIndex+1; x < listLength; x++) {
+    temp_array[x] = item_array[x];
   } 
 
   delete [] item_array;
   item_array = 0;
   item_array = temp_array;
   temp_array = 0;
-  delete [] temp_array;
+  // delete [] temp_array;
 
   listLength -= 1;
 

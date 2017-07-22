@@ -52,6 +52,12 @@ void Item::setPrice(int p) {
   price = p;
 }
 
+/****************************************************************
+** Function: operator==
+** Description: This will overload to == operator to help test
+                if an item already exists in the list.
+****************************************************************/
+
 bool Item::operator==(Item& right) {
   if (this->name==right.name){
     return true;
