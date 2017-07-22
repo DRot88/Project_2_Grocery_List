@@ -82,6 +82,8 @@ void List::removeItem() {
   cout << "Please enter the name of the item you would like to remove: ";
   getline(cin, item_to_remove);
 
+  cout << endl;
+  
   for (int x = 0; x < listLength; x++) {
     if (item_to_remove == item_array[x].getName()) {
       deletedItemIndex = x;
@@ -100,6 +102,7 @@ void List::removeItem() {
   item_array = 0;
   item_array = temp_array;
   temp_array = 0;
+  delete [] temp_array;
 
   listLength -= 1;
 
