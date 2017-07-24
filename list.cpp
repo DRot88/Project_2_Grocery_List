@@ -2,8 +2,6 @@
 #include "item.hpp"
 #include <iostream>
 #include <string>
-// #include <memory>
-// using std::shared
 using std::cout;
 using std::cin;
 using std::endl;
@@ -55,6 +53,8 @@ void List::addItem() {
   for (int x = 0; x < listLength; x++) {
     if (item_array[x] == *newItem) {
       cout << "The item you are trying to add already exists" << endl << endl;
+      delete newItem;
+      newItem = 0;
       return;
     } 
   }
@@ -112,12 +112,10 @@ void List::removeItem() {
 
   for (int x = 0; x < listLength; x++) {
     if (item_to_remove == item_array[x].getName()) {
-      cout << "item to remove index: " << x << endl << endl;
       deletedItemIndex = x;
     }
   }
 
-  cout << "Deleted Item Index: " << deletedItemIndex << endl;
   for (int x = 0; x < deletedItemIndex; x++) {
     temp_array[x] = item_array[x];
   }
@@ -130,7 +128,6 @@ void List::removeItem() {
   item_array = 0;
   item_array = temp_array;
   temp_array = 0;
-  // delete [] temp_array;
 
   listLength -= 1;
 
